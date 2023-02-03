@@ -1,0 +1,36 @@
+from flask import Flask, request
+import requests
+
+app = Flask(__name__)
+url = "http://localhost:5000/create_file"
+
+# data yang akan dikirimkan dalam permitaan POST
+data = "Ini adalah isi dari file teks."
+
+# mengirim permintaan POST 
+response = request.post(url, data=data)
+
+# cek status respon 
+if response.status_code == 201:
+    print("Berhasil membuat file")
+
+else:
+    print("Gagal membuat file")
+
+@app.route('/create_file', methods=['POST'])
+def create_file():
+    # mengambil data dari permintaan POST
+    data = request.data
+
+    # menulis data ke file
+    with open("file.txt", "w") as file:
+        file.write(data.decode("utf-8"))
+
+        # mengembalikan status 201 (Created)
+        return "File berhasil dibuat", 201
+
+if __name__ == '__main__':
+    app.run(debug=True)
+# comment
+
+
