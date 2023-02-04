@@ -22,5 +22,9 @@ if __name__ == '__main__':
     app.run(debug=True)
     serve(app, host='0.0.0.0', port=8080, threads=1)
 
-    else:
-        return 'Data not provided'
+methodes =['POST']
+
+if methods  POST:
+    print('created succesfully')
+else:
+    print('false')
