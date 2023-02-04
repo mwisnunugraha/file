@@ -9,14 +9,13 @@ def welcome():
     return {"Status": True, "Nama": "belajar_python"}
 
 @app.route('/create_file', methods=['POST','GET'])
-
 def create_file():
     file_content = request.form.get('file_content')
     file_name = request.form.get('file_name')
     
-    if methods == 'GET' :
+    if request.method == 'GET' :
         return {'status': False}
-    if methods == 'POST' :
+    if request.method == 'POST' :
         
         with open(file_name, "w") as file:
             file.write(file_content)
