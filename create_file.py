@@ -22,19 +22,5 @@ if __name__ == '__main__':
     app.run(debug=True)
     serve(app, host='0.0.0.0', port=8080, threads=1)
 
-app = Flask(__name__)
-
-@app.route('/create_file', methods=['POST'])
-def create_file():
-    data = request.form['data']
-
-    if data:
-        # Menulis data ke file
-        with open('file.txt', 'w') as f:
-            f.write(data)
-        return 'File created successfully'
     else:
         return 'Data not provided'
-
-if __name__ == '__main__':
-    app.run(debug=True)
