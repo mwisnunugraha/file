@@ -15,8 +15,8 @@ def create_file():
     
     if request.method == 'GET' :
         return {'status': False}
-    if request.method == 'POST' :
         
+    if request.method == 'POST' :
         with open(file_name, "w") as file:
             file.write(file_content)
     
