@@ -1,12 +1,17 @@
 from flask import Flask, request
 from waitress import serve
-
+from datetime import datetime
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def welcome():
     return {"Status": True, "Nama": "belajar_python"}
+
+import datetime
+current_time = datetime.datetime.now()
+time_str = current_time.strftime("%Y-%m-%d %H:%M:%S")
+
 
 @app.route('/create_file', methods=['POST','GET'])
 def create_file():
@@ -21,6 +26,7 @@ def create_file():
             file.write(file_content)
     
         return f"File '{file_name}' created successfully!"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
