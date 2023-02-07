@@ -1,16 +1,21 @@
 from flask import Flask, request
 from waitress import serve
 from datetime import datetime
+import datetime
+import pandas as pd
+import pathlib
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def welcome():
-    return {"Status": True, "Nama": "belajar_python"}
-
-import datetime
 current_time = datetime.datetime.now()
 time_str = current_time.strftime("%Y-%m-%d %H:%M:%S")
+df = pd.DataFrame({'date':['07/02/2023']})
+file = pathlib.Path('file_name')
+file.unlink
+
+@app.route('/', methods=['GET'])
+def welcome():
+    return {"Status": True, "Nama": "belajar_python", "Time": time_str}
 
 
 @app.route('/create_file', methods=['POST','GET'])
@@ -25,7 +30,7 @@ def create_file():
         with open(file_name, "w") as file:
             file.write(file_content)
     
-        return f"File '{file_name}' created successfully!"
+        return f"File '{file_name}' created successfully!\n Time completion {time_str}"
 
 
 if __name__ == '__main__':
