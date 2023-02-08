@@ -22,7 +22,7 @@ def create_file():
     message = "File {} has been created".format(file_name)
     
     if request.method == 'GET' :
-        return {'status': False}
+        return {'status': "Method Not Allowed"}, 405
     
     try:
         if request.method == 'POST' :
