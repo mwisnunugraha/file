@@ -48,4 +48,5 @@ def delete_file():
 # main function
 # it means that code enclosed  in if __name__ == "__main__": block will only be executed if the file is run as the main program
 if __name__ == '__main__':
+    app.run(debug=True)
     serve(app, host='0.0.0.0', port=8080, threads=1)
