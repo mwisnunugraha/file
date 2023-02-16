@@ -1,9 +1,11 @@
 from flask import Flask 
 import json
 
-x ={"sekolah1": "smk","name": "wisnu",
-"sekolah2": "sma","name": "aldo"}
+#buat buka file json
+file_json = open("data_sekolah.json")
 
-y = json.dumps(x, indent=4, sort_keys=True)
+# prsing data json
+data =  json.loads(file_json.read())
 
-print(y)
+# menampilkan isi data json
+print(data)
