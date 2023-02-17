@@ -1,8 +1,17 @@
 {
-
-    "Sekolah1" : "SMKN1",
-      "Nama1" : "murid1",
-    "Sekolah2" : "SMK N 2",
-      "Nama2" : "murid2"
-
+  "Data Sekolah":{
+    "Jenis Sekolah":{
+      "SD":[
+        "SDN1",
+        "SDN2",
+        "SDN3"
+      ],
+      "SMP":[
+        "SMP1"
+      ],
+      "SMA":[
+        "SMAN 1"
+      ]
+    }
+  }
 }

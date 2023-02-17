@@ -1,4 +1,5 @@
-from flask import Flask, request, json
+from flask import Flask, jsonify
+from waitress import serve
 import json
 
 app = Flask(__name__)
@@ -14,9 +15,11 @@ file_json = open("data_sekolah.json")
 data =  json.loads(file_json.read())
 
 
-@app.route('/data_sekolah.json')
+@app.route('/data_sekolah', methods=["GET"])
 def tampilkan_json():
-    return 'data_sekolah.json'
+    with open ("data_sekolah.json") as f:
+        data = json.load(f)
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run(debug=True)

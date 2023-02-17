@@ -3,7 +3,8 @@ from waitress import serve
 import datetime
 import os
 
-# global variable used by all function that call it
+# global variable 
+# used by all function that call it
 app = Flask(__name__)
 current_time = datetime.datetime.now()
 time_str = current_time.strftime("%Y-%m-%d %H:%M:%S")
@@ -43,7 +44,7 @@ def delete_file():
         os.remove(file_name)
         return jsonify({"message": message, "Timestamp": time_str}), 200
     except Exception as e:
-        return jsonify({"Error": str(e)}), 500
+        return jsonify({"Error": str(e)}), 500 
 
 # main function
 # it means that code enclosed  in if __name__ == "__main__": block will only be executed if the file is run as the main program
