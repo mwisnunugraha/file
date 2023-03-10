@@ -22,13 +22,13 @@ if __name__ == "__main__":
     """)
 
     user_input = int(input("Masukkan operasi yang anda inginkan: "))
-    angka1 = int(input("masukkan angka 1: "))
-    angka2 = int(input("masukkan angka 2: "))
 
     if user_input not in fungsi_kalkulator:
         print("invalid input")
         exit()
 
+    angka1 = int(input("masukkan angka 1: "))
+    angka2 = int(input("masukkan angka 2: "))
     hasil = fungsi_kalkulator[user_input](angka1, angka2)
     print ("Hasil : ",hasil)
 
